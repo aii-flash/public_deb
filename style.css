@@ -1,0 +1,289 @@
+/* === 웹폰트 === */
+@font-face {
+    font-family: 'Gyeonggi_Batang_Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Batang_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* === 메인 패시지 화면 === */
+body {
+  font-family: 'Gyeonggi_Batang_Regular', serif;
+  color: #3D403A;
+  font-size: 18px;
+  position: relative;
+  z-index: 0;
+  background-color: #F1F0E8;
+}
+/*선택지 */
+a {
+  color: #98a163;
+}
+/* 선택지 호버 시 */
+a:hover {
+  color: #98a163;
+  font-weight: bold;
+}
+/* 패시지 내 버튼 */
+body .macro-button {
+  background: transparent;
+  color: #497c51;
+  border: 2px solid #497c51;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* 패시지 내 버튼 호버 시 */
+body .macro-button:hover {
+  background: transparent;
+  color: #41533b;
+  border: 2px solid #41533b;
+}
+/* 패시지 내 각주(누르면 팝업) 링크 */
+a.link-internal.macro-link {
+  color: #B58A58; /* 원하는 색상 */
+  text-decoration: underline; /* 밑줄 등 추가 스타일 */
+}
+/* 패시지 내 각주 링크 호버 */
+a.link-internal.macro-link:hover {
+  color: #7F554B;
+  font-style: bold;
+  text-decoration: underline;
+}
+/* 검은색으로 페이드인 대상 */
+.fade-in-target {
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+.fade-in-start {
+  opacity: 1;
+}
+
+
+
+/* === 사이드바 상단 버튼들 === */
+/* 기본 버튼 스타일 */
+#ui-bar #ui-bar-toggle,
+#ui-bar #history-backward,
+#ui-bar #history-forward {
+  background-color: transparent;   /* 버튼 배경색 */
+  border: none;             /* 테두리 제거 */
+  color: #D6D2C4;             /* 화살표(기호) 색상 */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+/* 비활성화된 버튼 색상 (선택사항) */
+#ui-bar #history-backward[disabled],
+#ui-bar #history-forward[disabled] {
+  opacity: 0.3;
+  border: none;             /* 테두리 제거 */
+  color: #A98D65; 
+  background-color: #D6D2C4;
+}
+/* 호버 시 */
+#ui-bar #ui-bar-toggle:hover,
+#ui-bar #history-backward:hover:not([disabled]),
+#ui-bar #history-forward:hover:not([disabled]) {
+  background-color: transparent; /* 호버 시 배경색 */
+  color: #A98D65; /* 호버 시 화살표 색 */
+  border: unset;
+}
+/* 포커스 제거 (탭 이동 시 외곽선 제거) */
+#ui-bar #ui-bar-toggle:focus,
+#ui-bar #history-backward:focus,
+#ui-bar #history-forward:focus {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  border: unset;
+  color: #A98D65;
+}
+
+
+
+/* === 사이드바 스타일 설정 === */
+#ui-bar {
+  background-color: #F1F0E8;
+  color: #2C2E2A;
+  z-index: 0;
+  border: unset;
+}
+/* 사이드바 배경 설정 */
+#ui-bar::before {
+  background-image: url("https://www.nam.ac.uk/sites/default/files/styles/slice_lg/public/2019-02/82353_slice.jpg.webp?itok=kJzWvwTo");
+  z-index: -1;
+}
+/* 사이드바 버튼들에 적용 */
+#menu ul,
+#menu li {
+  border: unset; /* 또는 border: 0; */
+}
+/* 사이드바 버튼 리스트 설정 */
+#menu li a {
+  color: #497c51;
+}
+/* 사이드바 버튼 호버 시 */
+#menu li a:hover {
+  background-color: transparent;
+  color: #98a163;
+  border-radius: 5px;
+}
+/* ui바 세이브 설정 팝업창 */
+#ui-bar-saves {
+  background-color: #e6e2da;
+}
+#ui-bar-saves .save-slot {
+  background-color: #e6e2da;
+}
+#ui-dialog-body.saves {
+  background-color: #9e9a75;
+}
+
+
+
+/* === 팝업 스타일 설정 === */
+/* 팝업 배경 둥글기 설정 */
+#ui-dialog-body {border-radius: 0px 0px 10px 10px;}
+#ui-dialog-titlebar {border-radius: 10px 10px 0px 0px; }
+/* 팝업 배경 색 및 스타일 설정 */
+#ui-dialog-titlebar, #ui-dialog-body {background-color: #D6D2C4; border-color: #D6D2C4; color: #9e9a75;}
+/* 팝업 제목 및 팝업 텍스트 설정(헤더) */
+#ui-dialog h1 {  /* 또는 #ui-bar-dialog h2, #ui-bar-dialog h3 */
+  color: #2C2E2A;
+  background-color: #D6D2C4;/* 원하는 색상 */
+  border-radius: 10px 10px 0px 0px;
+}
+#ui-dialog h2 {
+  background-color: #111111;
+}
+#ui-dialog h3 {
+  color: #ece7d2;
+}
+/* 팝업 제목 텍스트 정렬 */
+#ui-dialog p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+/* 팝업 창 제목 부분 스타일 */
+#ui-bar-dialog .ui-dialog-title {
+  background-color: #111111;
+  color: #ece7d2;
+}
+/* 팝업 창 내부 버튼 스타일 */
+#ui-bar-dialog .ui-button {
+  color: #61a5c2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+/* 팝업 창 내부 버튼 호버 시 */
+#ui-bar-dialog .ui-button:hover {
+  background-color: #777;
+}
+/* 팝업창 내부 커스텀 버튼 */
+#ui-dialog .macro-button {
+  background: transparent;
+  color: #497c51;
+  border: 2px solid #497c51;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* 팝업창 내부 커스텀 버튼 호버 시 */
+#ui-dialog .macro-button:hover {
+  background: transparent;
+  color: #41533b;
+  border: 2px solid #41533b;
+}
+/* 우측 상단 닫기 버튼 */
+#ui-dialog-close:hover {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 3px solid #41533b;
+  color: #41533b;
+}
+
+
+
+/* === 세이브 팝업 === */
+/* 팝업 창 제목 부분 스타일 */
+#ui-bar-dialog .ui-dialog-title {
+  background-color: #D6D2C4;
+  color: #ece7d2;
+}
+/* In Browser 섹션 */
+#ui-dialog-body.saves h2:nth-of-type(1),
+#saves-list {
+  background-color: #D6D2C4;  /* In Browser 배경 */
+  color: #9e9a75;
+}
+/* On Disk 섹션 */
+#ui-dialog-body.saves h2:nth-of-type(2),
+#ui-dialog-body.saves ul.buttons {
+  background-color: #D6D2C4;  /* On Disk 배경 */
+  color: #9e9a75;
+}
+/* 세이브 슬롯 버튼 */
+#ui-dialog-body.saves .buttons.slots button {
+  color: #98a163;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #98a163;
+}
+/* 세이브 슬롯 버튼 호버 시 */
+#ui-dialog-body.saves .buttons.slots button:hover {
+  color: #497c51;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #41533b;
+}
+/* ‘전체 삭제(Delete All)’나 ‘닫기(Close)’ 같은 하단 버튼들 */
+#ui-dialog-body.saves > ul.buttons button {
+  color: #98a163;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #98a163;
+}
+/* ‘전체 삭제(Delete All)’나 ‘닫기(Close)’ 같은 하단 버튼들 호버 시*/
+#ui-dialog-body.saves > ul.buttons button:hover {
+  color: #497c51;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #41533b
+}
+/* 저장 불러오기 아이콘 버튼 */
+#ui-dialog-body.saves button.delete {
+  background-color: #9E3A26;
+  color: #9E3A26;
+  border: 2px solid #ff5e5e;
+  border-radius: 10px;
+}
+#ui-dialog-body.saves button.load {
+  background-color: #1e1e1e;
+  color: #98a163;
+  border: 2px solid #98a163;
+  border-radius: 10px;
+}
+
+
+
+/* === 리스타트 팝업 === */
+/* 리스타트 버튼(취소, ㅇㅋ) 스타일 */
+#restart-cancel,
+#restart-ok {
+  color: #9A3838;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 3px solid #9A3838;
+}
+/* 리스타트 버튼(취소, ㅇㅋ) 스타일 호버 시 */
+#restart-cancel:hover,
+#restart-ok:hover {
+  color: #782E2E;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 3px solid #782E2E;
+}
