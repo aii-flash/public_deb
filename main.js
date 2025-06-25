@@ -7,22 +7,22 @@
 
 // << 전역 객체 초기화 >>
 // -----------------------------------------------
-// setup 객체는 Twine이 관리합니다.
-setup.sfx = {}; // 사운드 객체들을 담을 공간
-setup.sfx.isReady = false; // 사운드 준비 상태를 추적할 깃발
+
 
 
 // << 오디오 시스템 자동 로딩 >>
 // -----------------------------------------------
 
 // 1. 오디오 에셋 '목록'을 먼저 불러옵니다.
-$.getScript("assets/audio-assets/_asset-list.js")
-    .done(function() {
+$.getScript("scripts/assetList.js") // 일단 로더부터 실행!
+    .done(function() { // 로딩이 성공한 후에야,
+        setup.sfx = {}; // <--- 안전한 이곳으로 '이사'옴.
+        setup.sfx.isReady = false;
         console.log("오디오 목록 로드 성공. 개별 에셋 로딩을 시작합니다.");
         loadAllAudioAssets();
     })
     .fail(function() {
-        console.error("치명적 오류: '_asset-list.js' 파일을 찾을 수 없습니다. 경로를 확인하세요.");
+        console.error("치명적 오류: 'assetList.js' 파일을 찾을 수 없습니다. 경로를 확인하세요.");
     });
 
 
@@ -33,7 +33,7 @@ function loadAllAudioAssets() {
     // window.lifeGameAudioData.assetList가 존재하는지 확인
     // (중요: 에셋 파일에서도 'lifeGameAudioData' 객체를 사용해야 합니다!)
     if (!window.lifeGameAudioData || !Array.isArray(window.lifeGameAudioData.assetList)) {
-        console.error("'_asset-list.js'에서 'window.lifeGameAudioData.assetList' 배열을 찾을 수 없습니다.");
+        console.error("'assetList.js'에서 'window.lifeGameAudioData.assetList' 배열을 찾을 수 없습니다.");
         return;
     }
     const loadingPromises = window.lifeGameAudioData.assetList.map(assetPath => {
